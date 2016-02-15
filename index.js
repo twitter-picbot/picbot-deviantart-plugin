@@ -9,7 +9,7 @@ const utils = {
    * @returns {*} random item fron the array.
    */
   getRandom(list) {
-    return list[Math.floor(Math.random() * (list.length - 1))];
+    return list[Math.round(Math.random() * (list.length - 1))];
   }
 };
 
@@ -47,13 +47,13 @@ function auth() {
  */
 function getDeviations(token, query) {
   return new Promise((resolve, reject) => {
-    let category = 'fanart/digital/painting/games';
+    let category = 'fanart';
 
     request({
       url: 'https://www.deviantart.com/api/v1/oauth2/browse/newest?' +
         'category_path=' + category + '&' +
         'q=' + query + '&' +
-        'offset=0&limit=50&mature_content=false',
+        'offset=0&limit=100&mature_content=true',
       headers: {
         'Accept': '*/*',
         'Authorization': 'Bearer ' + token,
