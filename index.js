@@ -72,8 +72,8 @@ function getDeviations(token, query) {
         const source = utils.getRandom(data.results);
 
         resolve({
-          source: source.content.src,
-          url: source.url
+          url: source.content.src,
+          source: source.url
         });
       }
     });
